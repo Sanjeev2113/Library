@@ -3,5 +3,41 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "dialogbox": {
+      "projectType": "library",
+      "root": "projects/dialogbox",
+      "sourceRoot": "projects/dialogbox/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/dialogbox/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/dialogbox/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/dialogbox/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/dialogbox/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": false
   }
 }
